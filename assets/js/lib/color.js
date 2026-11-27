@@ -11,7 +11,10 @@ export function cieXYZ(nm) {
   const x = 1.056 * g(nm, 599.8, 37.9, 31.0) + 0.362 * g(nm, 442.0, 16.0, 26.7) - 0.065 * g(nm, 501.1, 20.4, 26.2);
   const y = 0.821 * g(nm, 568.8, 46.9, 40.5) + 0.286 * g(nm, 530.9, 16.3, 31.1);
   const z = 1.217 * g(nm, 437.0, 11.8, 36.0) + 0.681 * g(nm, 459.0, 26.0, 13.8);
-  return [x, y, z];
+  // The fit underestimates x̄ in the deep violet; tabulated CIE data hold x̄/z̄ ≈ 0.21
+  // from 380 to 405 nm, which is what makes that light look violet rather than blue.
+  const xc = nm < 420 ? Math.max(x, 0.21 * z * Math.min(1, (420 - nm) / 15)) : x;
+  return [xc, y, z];
 }
 
 const gammaEnc = (c) => (c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055);
@@ -133,21 +136,21 @@ export const DENSITY = colormap(['#08090b', '#1b1440', '#3b1f78', '#7a2f8e', '#c
 
 /** Category hues for element groups, harmonised in OKLCH. */
 export const CATEGORY = {
-  'Alkali metal': { hue: 28, label: 'Alkali metals' },
-  'Alkaline earth metal': { hue: 62, label: 'Alkaline earth metals' },
-  'Transition metal': { hue: 300, label: 'Transition metals' },
-  'Post-transition metal': { hue: 150, label: 'Post-transition metals' },
-  Metalloid: { hue: 185, label: 'Metalloids' },
-  Nonmetal: { hue: 240, label: 'Reactive nonmetals' },
-  Halogen: { hue: 265, label: 'Halogens' },
-  'Noble gas': { hue: 330, label: 'Noble gases' },
-  Lanthanide: { hue: 0, label: 'Lanthanides' },
-  Actinide: { hue: 45, label: 'Actinides' },
+  'Alkali metal': { hue: 55, label: 'Alkali metals' },
+  'Alkaline earth metal': { hue: 92, label: 'Alkaline earth metals' },
+  'Transition metal': { hue: 285, label: 'Transition metals' },
+  'Post-transition metal': { hue: 158, label: 'Post-transition metals' },
+  Metalloid: { hue: 196, label: 'Metalloids' },
+  Nonmetal: { hue: 238, label: 'Reactive nonmetals' },
+  Halogen: { hue: 125, label: 'Halogens' },
+  'Noble gas': { hue: 322, label: 'Noble gases' },
+  Lanthanide: { hue: 355, label: 'Lanthanides' },
+  Actinide: { hue: 22, label: 'Actinides' },
 };
 export function categoryColor(cat, dark) {
   const c = CATEGORY[cat];
   if (!c) return dark ? 'oklch(0.32 0.01 80)' : 'oklch(0.9 0.01 80)';
-  return dark ? `oklch(0.38 0.07 ${c.hue})` : `oklch(0.89 0.065 ${c.hue})`;
+  return dark ? `oklch(0.39 0.075 ${c.hue})` : `oklch(0.885 0.075 ${c.hue})`;
 }
 export function categoryAccent(cat, dark) {
   const c = CATEGORY[cat];
