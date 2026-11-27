@@ -60,6 +60,7 @@
   --header-h: 56px;
   --shadow: 0 1px 0 rgba(0, 0, 0, 0.03), 0 8px 24px -12px rgba(40, 30, 10, 0.18);
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --fig-pad: clamp(.75rem, 2vw, 1.1rem);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -341,10 +342,7 @@ a { color: inherit; }
 
 /* ---------- Figures ---------- */
 figure { margin: 2.6em auto 3em; }
-.fig {
-  --fig-pad: clamp(.75rem, 2vw, 1.1rem);
-  position: relative;
-}
+.fig { position: relative; }
 .fig__frame {
   background: var(--bg-elev); border: 1px solid var(--rule); border-radius: var(--radius);
   overflow: hidden;

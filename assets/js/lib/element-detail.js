@@ -139,7 +139,7 @@ export function renderElementDetail(body, el, { E, nuclides, spectra }) {
     c.width = w * dpr; c.height = hh * dpr; c.style.width = '100%'; c.style.height = hh + 'px';
     const g = c.getContext('2d');
     g.scale(dpr, dpr);
-    drawSpectrum(g, { x: 0, y: 0, w, h: hh }, lines, { range: [380, 750], gamma: 0.45 });
+    drawSpectrum(g, { x: 0, y: 0, w, h: hh }, lines, { range: [380, 750], gamma: 0.75 });
     specBox.append(c);
   } else {
     body.querySelector('[data-spec]').innerHTML = '<h3>Emission spectrum</h3><p class="ed-cfg-note">No measured visible spectrum is available for this element.</p>';

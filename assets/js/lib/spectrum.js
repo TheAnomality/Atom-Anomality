@@ -28,7 +28,7 @@ export function drawSpectrum(ctx, box, lines, { mode = 'emission', range = [380,
       const x = sx(nm);
       const [r, g, bl] = wavelengthRGB(nm);
       const col = `rgba(${Math.round(r * 255)},${Math.round(g * 255)},${Math.round(bl * 255)},`;
-      if (glow && t > 0.25) {
+      if (glow && t > 0.35) {
         const gw = 6 + 10 * t;
         const grad = ctx.createLinearGradient(x - gw, 0, x + gw, 0);
         grad.addColorStop(0, col + '0)');

@@ -67,7 +67,7 @@ export async function mount(el, opts = {}) {
       ctx.fillText('No line data for this stage', 10, 30);
       return;
     }
-    drawSpectrum(ctx, box, lines, { mode, range, gamma: mode === 'emission' ? 0.45 : 0.6 });
+    drawSpectrum(ctx, box, lines, { mode, range, gamma: mode === 'emission' ? 0.75 : 0.7 });
     drawWavelengthAxis(ctx, box, range, { color: '#8d8a83' });
     cv.canvas.setAttribute('aria-label', `${mode} spectrum of ${e.name}${ion === 'II' ? ' ion' : ''} from 380 to 750 nanometres.`);
     const top = [...vis].sort((a, b) => b[1] - a[1]).slice(0, 6).sort((a, b) => a[0] - b[0]);
