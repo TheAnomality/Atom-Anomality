@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the compact JSON data files used by the site from raw open-data downloads.
 
-Inputs (see tools/fetch_data.sh for how they are downloaded):
+Inputs (tools/fetch_data.sh downloads them and then runs this script):
   RAW/pubchem_pt.json            PubChem periodic table (PUG REST)
   RAW/nist_ie.csv                NIST ASD ground states & ionization energies
   RAW/iaea_ground.csv            IAEA LiveChart of Nuclides, ground states

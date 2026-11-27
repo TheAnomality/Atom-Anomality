@@ -99,3 +99,4 @@
 
 .home-closing { max-width: var(--measure); margin: 6rem auto 0; padding: 0 var(--gutter); }
 .home-closing p { color: var(--ink-2); }
+.tool__art img { width: 100%; height: 100%; object-fit: cover; display: block; }

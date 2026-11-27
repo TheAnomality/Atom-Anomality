@@ -46,6 +46,7 @@ export async function mount(root) {
   const extra = Promise.all([getNuclides(), getSpectra()]).then(([n, s]) => { nuclides = n; spectra = s; });
 
   let mode = 'category', prop = 'en', temp = 298, hover = null, selected = null, query = '';
+  const touch = window.matchMedia('(hover: none)').matches;
   const hiddenCats = new Set();
 
   // ---------- toolbar
@@ -266,7 +267,7 @@ export async function mount(root) {
         <div class="pt-card__name">${show.name}</div>
         <div class="pt-card__cfg">${configHTML(show)}</div>
         <div class="pt-card__val"${mode === 'prop' ? '' : ' style="font-family:var(--font-sans);font-weight:500"'}>${val}</div>
-        <div class="pt-card__hint">${e ? 'Click for the full profile' : 'Hover over an element; click for details'}</div>
+        <div class="pt-card__hint">${touch ? 'Tap any element for its full profile' : e ? 'Click for the full profile' : 'Hover over an element; click for details'}</div>
       </div>`;
     drawTrend();
   }

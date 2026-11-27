@@ -239,7 +239,7 @@ export async function mount(el) {
     ctx.fillStyle = '#6e6b65';
     ctx.font = FONT.sans(10.5);
     ctx.textAlign = 'left';
-    ctx.fillText('Not to scale: a real nucleus is tens of thousands of times smaller than the atom.', 12, hh - 12);
+    ctx.fillText(w < 520 ? 'Not to scale: real nuclei are far smaller.' : 'Not to scale: a real nucleus is tens of thousands of times smaller than the atom.', 12, hh - 12);
     cv.canvas.setAttribute('aria-label', `Atom with ${state.p} protons, ${state.n} neutrons and ${state.e} electrons.`);
   }
 

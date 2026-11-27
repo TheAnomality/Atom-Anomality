@@ -539,3 +539,13 @@ select.select {
   .site-header, .site-footer, .fig__controls, .chapter-nav { display: none !important; }
   body { background: #fff; color: #000; }
 }
+
+/* Controls wrap gracefully on small screens */
+.control { flex-wrap: wrap; max-width: 100%; min-width: 0; }
+@media (max-width: 600px) {
+  .fig__controls { gap: .7rem 1rem; }
+  .fig__controls > .control:has(input[type="range"]) { width: 100%; }
+  .fig__controls input[type="range"] { flex: 1 1 8rem; width: auto !important; min-width: 7rem; }
+  .seg { max-width: 100%; }
+  .seg button { padding: .38rem .62rem; }
+}
