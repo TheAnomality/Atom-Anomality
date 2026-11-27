@@ -216,3 +216,45 @@
 .ba-goals { margin: 0; padding-left: 1.3rem; font-size: .85rem; line-height: 1.6; }
 .ba-goals li[data-done="true"] { color: var(--ink-3); text-decoration: line-through; text-decoration-color: var(--ink-3); }
 .ba-goals li[data-done="true"]::marker { color: #1f7a4d; }
+
+/* ---------- Empty space ---------- */
+.es-body { padding: 1.3rem 1.3rem .8rem; font-family: var(--font-sans); }
+.es-big { font: 400 clamp(2.4rem, 1.6rem + 3vw, 3.8rem)/1 var(--font-serif); letter-spacing: -0.03em; font-variant-numeric: lining-nums; }
+.es-big small { font: 500 .9rem/1 var(--font-sans); color: var(--ink-3); margin-left: .5rem; letter-spacing: 0; }
+.es-line { font: 400 1.08rem/1.5 var(--font-serif); color: var(--ink-2); margin: .7rem 0 1.1rem; max-width: 46rem; }
+.es-note { font: 400 .78rem/1.5 var(--font-sans); color: var(--ink-3); margin: 1.1rem 0 0; max-width: 52rem; }
+
+/* ---------- Particle table and mass bar ---------- */
+.ptab td:first-child, .ptab th:first-child { color: var(--ink-3); font-weight: 400; }
+.massbar { margin: 1rem 0 .4rem; }
+.massbar__track { display: flex; height: 34px; border-radius: 4px; overflow: hidden; background: var(--bg-sunk); }
+.massbar__q { background: #f2c94c; min-width: 3px; }
+.massbar__g { flex: 1; background: repeating-linear-gradient(135deg, color-mix(in oklab, var(--proton) 75%, transparent) 0 6px, color-mix(in oklab, var(--proton) 55%, transparent) 6px 12px); }
+.massbar__legend { display: flex; justify-content: space-between; gap: 1rem; font: 400 .8rem/1.4 var(--font-sans); color: var(--ink-2); margin-top: .5rem; flex-wrap: wrap; }
+.massbar__legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: .35rem; vertical-align: -1px; }
+
+/* ---------- Models timeline ---------- */
+.mt-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+.mt-tab { border: 0; background: none; padding: 1rem .5rem .9rem; display: flex; flex-direction: column; align-items: center; gap: .45rem; color: var(--ink-3); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color .15s, background-color .15s; }
+.mt-tab:hover { color: var(--ink); background: var(--bg-sunk); }
+.mt-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.mt-year { font: 500 .78rem/1 var(--font-mono); }
+.mt-art svg { width: 84px; height: 84px; color: var(--ink-2); display: block; }
+.mt-name { font: 500 .86rem/1.2 var(--font-sans); text-align: center; }
+.mt-panel { padding: 1.2rem 1.3rem 1.4rem; }
+.mt-panel:focus-visible { outline-offset: -2px; }
+.mt-who { font: 600 .7rem/1.3 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .9rem; }
+.mt-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; }
+.mt-cols h4 { font: 600 .8rem/1.2 var(--font-sans); margin: 0 0 .45rem; color: var(--ink); }
+.mt-cols p { font: 400 1rem/1.55 var(--font-serif); margin: 0; color: var(--ink-2); }
+@media (max-width: 760px) { .mt-cols { grid-template-columns: 1fr; gap: 1rem; } .mt-tabs { overflow-x: auto; grid-template-columns: repeat(5, minmax(92px, 1fr)); } }
+
+/* ---------- Rutherford ---------- */
+.ru-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ru-zoom { border-left: 1px solid var(--stage-rule); }
+@media (max-width: 760px) { .ru-grid { grid-template-columns: 1fr; } .ru-zoom { border-left: 0; border-top: 1px solid var(--stage-rule); } }
+.ru-stats .readouts { width: 100%; }
+
+/* ---------- Salt crystal ---------- */
+.sc-legend { position: absolute; left: .9rem; bottom: .8rem; display: flex; gap: 1rem; font: 400 .78rem/1 var(--font-sans); color: var(--stage-ink-2); pointer-events: none; }
+.sc-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: .4rem; vertical-align: -1px; }
